@@ -1,11 +1,12 @@
-import LanguageLearning from './components/LanguageLearning';
+import "./app.css";
+import { AuthContextProvider } from "./context/AuthContext";
+import AppRouter from "./routers/Router";
 
 const App = () => {
   return (
-    <div>
-      <h1>Duolingo trucho</h1>
-      <LanguageLearning />
-    </div>
+    <AuthContextProvider>
+      <AppRouter/>
+    </AuthContextProvider>
   );
 };
 

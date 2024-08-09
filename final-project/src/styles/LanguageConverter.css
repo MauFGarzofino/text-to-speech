@@ -1,0 +1,41 @@
+.language-converter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    width: 100%;
+    min-height: 1lh;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    field-sizing: content;
+    resize: none;
+    background-color: #ffffff00;
+}
+
+button {
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+button:disabled {
+    background-color: #252323;
+    cursor: not-allowed;
+}
+
+button:hover:enabled {
+    background-color: #2c2d2e;
+}
+
+audio {
+    width: 100%;
+    margin-top: 20px;
+}

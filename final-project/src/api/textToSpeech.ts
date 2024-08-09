@@ -1,7 +1,7 @@
 interface TextToSpeechRequest {
     text: string;
-    voice: string;  // Ejemplo: 'en-US_AllisonV3Voice'
-    accept: string; // Ejemplo: 'audio/wav'
+    voice: string;  // Example: 'en-US_AllisonV3Voice'
+    accept: string; // Example: 'audio/wav'
   }
   
   interface TextToSpeechResponse {
