@@ -5,9 +5,8 @@ import { supabase } from "../../supabase/supabaseClient";
 import { useAuth } from "../../context/AuthContext";
 import UserProfile from "../molecules/UserProfile";
 import LanguageSelector from "../molecules/LanguageSelector";
-import "../../App.css"
 
-const HomePage = () => {
+const Lyrics = () => {
   const { userName, userProfilePicture, signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -23,7 +22,7 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Text-to-Speech</h1>
       <LanguageSelector />
       <LanguageLearning />
@@ -33,4 +32,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Lyrics;

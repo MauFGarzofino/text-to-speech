@@ -1,0 +1,14 @@
+.button-atom {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #00cfff;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }  
