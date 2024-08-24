@@ -1,0 +1,20 @@
+.song-table {
+    background-color: #1d1c1cc5;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}

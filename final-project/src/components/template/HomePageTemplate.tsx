@@ -1,14 +1,13 @@
-import React from "react";
-import "./HomePageTemplate.css";
-import UserHeader from "../organisms/UserHeader";
-import NavigationDrawer from "../organisms/NavigationDrawer";
-import FirstRow from "../organisms/FirstRow";
-import SecondRow from "../organisms/SecondRow";
-import ButtonAtom from "../atoms/ButtonAtom";
-import TextAtom from "../atoms/TextAtom";
+import "./styles/HomePageTemplate.css";
+import UserHeader from "../organisms/headers/UserHeader";
+import FirstRow from "../organisms/rows/FirstRow";
+import SecondRow from "../organisms/rows/SecondRow";
+import ThirdRow from "../organisms/rows/ThirdRow"; 
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../organisms/navigation/SideBar";
+import HeaderWithButton from "../molecules/utilities/HeaderWithButton";
 
-const HomePageTemplate: React.FC = () => {
+const HomePageTemplate = () => {
   const navigate = useNavigate();
 
   const handleViewAllClick = () => {
@@ -16,20 +15,15 @@ const HomePageTemplate: React.FC = () => {
   };
 
   return (
-    <div className="home-page-template">
-      <NavigationDrawer />
+    <div className="home-page-template flex">
+      <Sidebar />
       <div className="content">
         <UserHeader />
-        <div className="header-row">
-          <TextAtom text="Popular music genres" fontSize="24px" />
-          <ButtonAtom text="View all" onClick={handleViewAllClick} />
-        </div>
+        <HeaderWithButton title="Popular music genres" onClick={handleViewAllClick} />
         <FirstRow />
-        <div className="header-row">
-          <TextAtom text="For you" fontSize="24px" />
-          <ButtonAtom text="View all" onClick={handleViewAllClick} />
-        </div>
+        <HeaderWithButton title="For you" onClick={handleViewAllClick} />
         <SecondRow />
+        <ThirdRow onViewAllClick={handleViewAllClick} />
       </div>
     </div>
   );

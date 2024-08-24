@@ -1,0 +1,46 @@
+.song-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.song-row:hover {
+  background-color: #3a3a3c;
+}
+
+.song-id {
+  color: white;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.song-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
+  margin-right: 15px;
+}
+
+.song-heart {
+  font-size: 1.2rem;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.song-name {
+  flex: 1;
+  color: white;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-likes {
+  color: white;
+  font-size: 1rem;
+  text-align: right;
+}

@@ -1,6 +1,4 @@
-import React from "react";
-
-const BellIcon: React.FC = () => {
+const BellIcon = () => {
   return (
     <svg
       fill="#FFFFFF"

@@ -1,6 +1,4 @@
-import React from "react";
-
-const LyricsIcon: React.FC = () => {
+const LyricsIcon = () => {
   return (
     <svg
       fill="#FFFFFF"

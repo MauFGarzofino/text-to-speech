@@ -1,6 +1,4 @@
-import React from "react";
-
-const BookIcon: React.FC = () => {
+const BookIcon = () => {
   return (
     <svg
       fill="#FFFFFF"

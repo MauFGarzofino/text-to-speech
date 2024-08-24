@@ -1,4 +1,4 @@
-import "./ProfileImage.css";
+import "./styles/ProfileImage.css";
 
 interface UserProfilePictureProps {
   userProfilePicture: string | null;

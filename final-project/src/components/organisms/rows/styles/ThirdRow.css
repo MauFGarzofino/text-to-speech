@@ -1,0 +1,15 @@
+.container-tr {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.song-table, .media-card {
+    flex: 1;
+}
+
+@media (max-width: 935px) {
+    .container-tr {
+        flex-direction: column; 
+    }
+}

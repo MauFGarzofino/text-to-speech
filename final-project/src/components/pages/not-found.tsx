@@ -1,7 +1,9 @@
+import TextAtom from "../atoms/typography/Text";
+
 const NotFound = () => {
   return (
     <div>
-      <h1>404 - Page Not Found</h1>
+      <TextAtom text="404 - Page Not Found" fontSize="3rem"></TextAtom>
     </div>
   );
 };

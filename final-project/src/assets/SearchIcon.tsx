@@ -1,6 +1,4 @@
-import React from "react";
-
-const SearchIcon: React.FC = () => {
+const SearchIcon = () => {
   return (
     <svg
       fill="#FFFFFF"

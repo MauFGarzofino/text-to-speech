@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,6 +17,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  font-size: 70%; 
+  transition: font-size 0.1s ease;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -24,4 +33,20 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+#root, .home-page-template, .content {
+  min-height: 100vh; 
+}
+
+@media (min-width: 600px) {
+  html {
+    font-size: 100%; 
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 112.5%; /* Esto hace que 1rem = 18px en pantallas de 1024px en adelante */
+  }
 }
