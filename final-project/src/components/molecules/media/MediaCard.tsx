@@ -1,5 +1,6 @@
 import { Card, CardMedia, Typography, CardContent } from "@mui/material";
 import "./styles/MediaCard.css";
+import { useNavigate } from "react-router-dom";
 
 interface MediaCardProps {
   title: string;
@@ -18,8 +19,15 @@ const MediaCard = ({
   height,
   translateY,
 }: MediaCardProps) => {
+  const navigate = useNavigate();
+
+  const handleViewAllClick = () => {
+    navigate("/songs", { replace: true });
+  };
+
   return (
     <Card
+      onClick={handleViewAllClick}
       className="media-card"
       style={{ borderRadius: "16px", maxWidth: width, maxHeight: height }}
     >

@@ -8,6 +8,7 @@ interface SongTableProps {
     id: number;
     imageUrl: string;
     trackName: string;
+    artist: string;
     likes: number;
   }>;
   onViewAllClick: () => void;
