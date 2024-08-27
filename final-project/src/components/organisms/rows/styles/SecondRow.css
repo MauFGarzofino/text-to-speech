@@ -1,0 +1,12 @@
+.container-sr {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); 
+    gap: 20px;
+    justify-items: center; 
+}
+
+@media (max-width: 735px) {
+    .container-sr {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); 
+    }
+}

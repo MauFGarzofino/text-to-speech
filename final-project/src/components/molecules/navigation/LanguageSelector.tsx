@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Select from "../atoms/Select";
-import Option from "../atoms/Option";
+import Select from "../../atoms/inputs/Select";
+import Option from "../../atoms/inputs/Option";
 
 const LanguageSelector = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("en-US");

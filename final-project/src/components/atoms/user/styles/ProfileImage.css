@@ -1,0 +1,6 @@
+.profile-image {
+    width: 2rem; /* Aproximadamente 35px si la base es 16px */
+    height: 2rem;
+    border-radius: 50%;
+    transition: all 0.3s ease; /* Para una transición suave si cambia el tamaño */
+}

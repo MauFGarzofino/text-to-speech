@@ -1,0 +1,7 @@
+.text-atom {
+  font-size: 1rem;
+  line-height: 1.5rem; 
+  margin-bottom: 0.2rem;
+  transition: all 0.3s ease;
+}
+

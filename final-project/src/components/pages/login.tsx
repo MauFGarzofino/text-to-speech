@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import ButtonAtom from "../atoms/buttons/PrimaryButton";
+import TextAtom from "../atoms/typography/Text";
+import "./login.css"
 
 const LoginPage = () => {
   const { signInWithGoogle, user } = useAuth();
@@ -20,9 +23,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <button onClick={handleSignIn}>Sign In with Google</button>
+    <div className="loginContainer">
+      <TextAtom text="Login" fontSize="4rem" fontWeight="bold"/>
+      <ButtonAtom text='Sign In With Google' onClick={handleSignIn}/>
     </div>
   );
 };

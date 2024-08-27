@@ -1,5 +1,5 @@
-import UserProfileName from "../atoms/user/UserProfileName"; 
-import UserProfilePicture from "../atoms/user/UserProfilePicture"; 
+import UserProfileName from "../../atoms/user/UserProfileName";
+import UserProfilePicture from "../../atoms/user/UserProfilePicture"; 
 
 interface UserProfileProps {
   userName: string | null;

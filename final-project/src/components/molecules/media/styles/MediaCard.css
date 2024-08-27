@@ -1,0 +1,27 @@
+.media-card {
+    position: relative;
+    height: 100%;
+}
+
+.media-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 0.1em  #00cfff;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.media-card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+.imgCard {
+    transform: translate(0%, -17%);
+}

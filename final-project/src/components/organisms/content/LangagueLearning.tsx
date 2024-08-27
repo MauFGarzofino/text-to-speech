@@ -1,4 +1,4 @@
-import LanguageConverter from '../molecules/LanguageConverter';
+import LanguageConverter from "../../molecules/utilities/LanguageConverter";
 
 const LanguageLearning = () => {
   return (

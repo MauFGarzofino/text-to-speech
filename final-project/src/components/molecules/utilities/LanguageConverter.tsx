@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { getTextToSpeech } from "../../api/textToSpeech";
-import Textarea from "../atoms/TextArea";
-import AudioPlayer from "../atoms/AudioPlayer";
-import "../../styles/LanguageConverter.css"
+import { getTextToSpeech } from "../../../api/textToSpeech";
+import Textarea from "../../atoms/inputs/TextArea";
+import AudioPlayer from "../../atoms/media/AudioPlayer";
 
 const LanguageConverter = () => {
   const [text, setText] = useState("");

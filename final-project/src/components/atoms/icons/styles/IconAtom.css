@@ -1,0 +1,29 @@
+.icon-atom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 15px;
+  gap: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.icon-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-text {
+  font-size: 16px; 
+}
+
+.icon-atom:hover {
+  background-color: #3a3838;
+}
