@@ -1,4 +1,4 @@
-import SongRow from "../../molecules/media/SongRow";
+import PopularSongRow from "../../organisms/rows/PopularSongRow";
 import HeaderWithButton from "../../molecules/utilities/HeaderWithButton";
 import "./styles/SongTable.css";
 
@@ -6,10 +6,10 @@ interface SongTableProps {
   title: string;
   songs: Array<{
     id: number;
-    imageUrl: string;
+    albumImageUrl?: string;
     trackName: string;
     artist: string;
-    likes: number;
+    listeners: number;
   }>;
   onViewAllClick: () => void;
 }
@@ -17,11 +17,10 @@ interface SongTableProps {
 const SongTable = ({ title, songs, onViewAllClick }: SongTableProps) => {
   return (
     <div className="song-table">
-      <HeaderWithButton title={title} onClick={onViewAllClick} />{" "}
-
+      <HeaderWithButton title={title} onClick={onViewAllClick} />
       <div className="song-list">
         {songs.map((song) => (
-          <SongRow key={song.id} song={song} />
+          <PopularSongRow key={song.id} song={song} />
         ))}
       </div>
     </div>

@@ -11,7 +11,7 @@ interface HeaderWithButtonProps {
 const HeaderWithButton = ({
   title,
   onClick,
-  fontSize = "1.2rem",
+  fontSize = "1.3rem",
 }: HeaderWithButtonProps) => {
   return (
     <div className="header-with-button">

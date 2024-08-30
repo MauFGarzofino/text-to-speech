@@ -5,6 +5,7 @@ import Lyrics from "../components/pages/lyrics";
 import NotFound from "../components/pages/not-found";
 import HomePage from "../components/pages/home";
 import SongsPage from "../components/pages/songs";
+import SongsTemplate from "../components/template/SongsTemplate";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/songs" element={<SongsPage />} />
       <Route path="/*" element={<NotFound />} />
+      <Route path="/data" element={<SongsTemplate />} />
     </Routes>
   );
 };

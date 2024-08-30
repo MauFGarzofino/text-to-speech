@@ -1,7 +1,30 @@
+import { useEffect, useState } from 'react';
 import MediaCard from '../../molecules/media/MediaCard';
 import './styles/FirstRow.css';
+import { searchAlbums } from '../../../api/musicApi';
 
 const FirstRow = () => {
+  const [cardsData, setCardsData] = useState<any[]>([
+    { imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb' },
+    { imageUrl: 'https://images.unsplash.com/photo-1526413232644-8a40f03cc03b' },
+    { imageUrl: 'https://assets.api.uizard.io/api/cdn/stream/26fcd456-6a3d-4439-a7e9-fe477be215d3.jpg' },
+    { imageUrl: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86' },
+  ]);
+
+  useEffect(() => {
+    // Search for albums by the term
+    searchAlbums("julieta")
+      .then(data => {
+        const albums = data.results.albummatches.album.map((album: any, index: number) => ({
+          title: album.artist,
+          subtitle: album.name,
+          imageUrl: cardsData[index]?.imageUrl,
+        }));
+
+        setCardsData(albums.slice(0, 4));  
+      })
+      .catch(error => console.error('Error fetching album search results:', error));
+  }, []);
 
   return (
     <div className="container-fr">
@@ -21,10 +44,3 @@ const FirstRow = () => {
 };
 
 export default FirstRow;
-
-const cardsData = [
-  { title: 'Chill Vibes', subtitle: 'Chill', imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb' },
-  { title: 'Morning Energy', subtitle: 'Chill', imageUrl: 'https://images.unsplash.com/photo-1526413232644-8a40f03cc03b' },
-  { title: 'Pop Hits', subtitle: '', imageUrl: 'https://assets.api.uizard.io/api/cdn/stream/26fcd456-6a3d-4439-a7e9-fe477be215d3.jpg' },
-  { title: 'New Artists', subtitle: 'Discover', imageUrl: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86' },
-];
