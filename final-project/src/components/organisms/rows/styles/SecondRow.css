@@ -10,3 +10,9 @@
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); 
     }
 }
+
+@media (max-width: 340px) {
+    .container-sr {
+        height: 520px;
+    }
+}

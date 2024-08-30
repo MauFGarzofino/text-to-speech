@@ -1,4 +1,4 @@
-import SongRow from "../../molecules/media/SongsRows";
+import AlbumSongRow from "../../molecules/media/AlbumSongRow";
 
 interface SongListProps {
   songs: Array<{
@@ -18,7 +18,6 @@ const SongList = ({ songs }: SongListProps) => {
         <tr className="border-b border-gray-800">
           <th className="pb-3 font-normal text-gray-500">#</th>
           <th className="pb-3 font-normal text-gray-500">TITLE</th>
-          <th className="pb-3 font-normal text-gray-500">ALBUM</th>
           <th className="pb-3 font-normal text-gray-500 text-right">
             DURATION
           </th>
@@ -26,7 +25,7 @@ const SongList = ({ songs }: SongListProps) => {
       </thead>
       <tbody>
         {songs.map((song) => (
-          <SongRow
+          <AlbumSongRow
             key={song.number}
             number={song.number}
             title={song.title}

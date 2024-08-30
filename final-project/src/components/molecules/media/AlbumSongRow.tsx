@@ -5,12 +5,12 @@ interface SongRowProps {
   number: number;
   title: string;
   artist: string;
-  album: string;
+  album?: string;
   duration: string;
   imageUrl: string;
 }
 
-const SongsRows = ({ number, title, artist, album, duration, imageUrl }: SongRowProps) => {
+const AlbumSongRow = ({ number, title, artist, duration, imageUrl }: SongRowProps) => {
   return (
     <tr className="group transform transition-all duration-300 hover:scale-105 cursor-pointer">
       <td className="py-4 text-gray-400 align-mid pr-6">{number}</td>
@@ -23,11 +23,11 @@ const SongsRows = ({ number, title, artist, album, duration, imageUrl }: SongRow
           </div>
         </div>
       </td>
-      <td className="py-4 text-gray-400 align-mid">{album}</td>
+      {/* <td className="py-4 text-gray-400 align-mid">{album}</td> */}
       <td className="py-4 text-gray-400 text-right align-mid pr-6">{duration}</td>
     </tr>
   );
 };
 
-export default SongsRows;
+export default AlbumSongRow;
 

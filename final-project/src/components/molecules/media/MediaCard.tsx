@@ -1,8 +1,8 @@
 import { Card, CardMedia, Typography, CardContent } from "@mui/material";
 import "./styles/MediaCard.css";
 import { useNavigate } from "react-router-dom";
-
-interface MediaCardProps {
+ 
+interface AlbumSongRowProps  {
   title: string;
   subtitle: string;
   imageUrl: string;
@@ -11,23 +11,16 @@ interface MediaCardProps {
   translateY?: string;
 }
 
-const MediaCard = ({
-  title,
-  subtitle,
-  imageUrl,
-  width,
-  height,
-  translateY,
-}: MediaCardProps) => {
+const MediaCard = ({ title, subtitle, imageUrl, width, height, translateY }: AlbumSongRowProps ) => {
   const navigate = useNavigate();
 
-  const handleViewAllClick = () => {
-    navigate("/songs", { replace: true });
+  const handleClick = () => {
+    navigate('/songs', { state: { artist: title, album: subtitle } });
   };
 
   return (
     <Card
-      onClick={handleViewAllClick}
+      onClick={handleClick}
       className="media-card"
       style={{ borderRadius: "16px", maxWidth: width, maxHeight: height }}
     >
@@ -45,16 +38,16 @@ const MediaCard = ({
       <CardContent className="media-card-content">
         <Typography
           component="div"
-          variant="subtitle1"
+          variant="subtitle2"
           style={{
-            fontWeight: 700,
+            fontWeight: 600,
           }}
         >
           {subtitle}
         </Typography>
         <Typography
           component="div"
-          variant="h5"
+          variant="h6"
           style={{
             fontWeight: 900,
             whiteSpace: "nowrap",
