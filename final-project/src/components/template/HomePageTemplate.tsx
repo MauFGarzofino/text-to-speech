@@ -11,7 +11,7 @@ const HomePageTemplate = () => {
   const navigate = useNavigate();
 
   const handleViewAllClick = () => {
-    navigate("/lyrics", { replace: true });
+    navigate("/view-all-albums", { replace: true });
   };
 
   return (
@@ -19,8 +19,8 @@ const HomePageTemplate = () => {
       <Sidebar />
       <div className="content">
         <UserHeader />
-        <HeaderWithButton title="Popular music genres" onClick={handleViewAllClick} />
-        <FirstRow />
+        <HeaderWithButton title="Popular albums" onClick={handleViewAllClick} />
+        <FirstRow limit="4"/>
         <HeaderWithButton title="For you" onClick={handleViewAllClick} />
         <SecondRow />
         <ThirdRow onViewAllClick={handleViewAllClick} />

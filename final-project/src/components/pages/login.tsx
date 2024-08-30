@@ -3,7 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import ButtonAtom from "../atoms/buttons/PrimaryButton";
 import TextAtom from "../atoms/typography/Text";
-import "./login.css"
+import "./styles/login.css"
 
 const LoginPage = () => {
   const { signInWithGoogle, user } = useAuth();

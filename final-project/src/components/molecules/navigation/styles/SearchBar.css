@@ -1,0 +1,24 @@
+.search-bar-container {
+    margin-bottom: 20px;
+}
+
+.button-search {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #00cfff;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.3rem 1rem;
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+.button-search:hover {
+    background-color: #00cfff;
+    color: #000000;
+    transition: all 0.4s ease;
+}

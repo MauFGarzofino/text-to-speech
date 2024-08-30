@@ -1,0 +1,9 @@
+.view-all-albums {
+    padding: 20px;
+}
+
+.load-more-container {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}

@@ -6,6 +6,7 @@ import NotFound from "../components/pages/not-found";
 import HomePage from "../components/pages/home";
 import SongsPage from "../components/pages/songs";
 import SongsTemplate from "../components/template/SongsTemplate";
+import ViewAllAlbums from "../components/pages/ViewAllAlbums";
 
 const AppRouter = () => {
   return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
       <Route path="/songs" element={<SongsPage />} />
       <Route path="/*" element={<NotFound />} />
       <Route path="/data" element={<SongsTemplate />} />
+      <Route path="/view-all-albums" element={<ViewAllAlbums />} />
     </Routes>
   );
 };
