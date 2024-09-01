@@ -1,7 +1,9 @@
+import { useState } from "react";
 import ImageAtom from "../../atoms/media/ImageAtom";
 import TextAtom from "../../atoms/typography/Text";
 import LyricsModal from "../../molecules/media/LyricsModal";
 import { useLyricsModal } from "../../../hooks/useLyricsModal";
+import { getTextToSpeech } from "../../../api/textToSpeech";
 
 interface SongRowProps {
   number: number;
@@ -13,10 +15,27 @@ interface SongRowProps {
 }
 
 const AlbumSongRow = ({ number, title, artist, duration, imageUrl }: SongRowProps) => {
-  const { isModalOpen, lyrics, handleRowClick, handleClose } = useLyricsModal(
-    title,
-    artist
-  );
+  const { isModalOpen, lyrics, handleRowClick, handleClose } = useLyricsModal(title, artist);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLineClick = async (line: string) => {
+    setIsLoading(true);
+    try {
+      const response = await getTextToSpeech({
+        text: line,
+        voice: 'en-US_AllisonV3Voice',
+        accept: 'audio/wav',
+      });
+
+      const audioUrl = URL.createObjectURL(response.audioContent);
+      const audio = new Audio(audioUrl);
+      audio.play();
+    } catch (error) {
+      console.error("Error al convertir la línea de la canción en audio:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -56,6 +75,8 @@ const AlbumSongRow = ({ number, title, artist, duration, imageUrl }: SongRowProp
         trackName={title}
         artist={artist}
         lyrics={lyrics}
+        onLineClick={handleLineClick}  // Pasamos la función al modal
+        isLoading={isLoading}  // Podrías mostrar un loading mientras se procesa
       />
     </>
   );

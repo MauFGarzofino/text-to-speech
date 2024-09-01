@@ -9,7 +9,7 @@ type SearchBarProps = {
 
 const SearchBar = ({ placeholder, onSearch }: SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 1000); 
+  const debouncedSearchTerm = useDebounce(searchTerm, 500); 
 
   useEffect(() => {
     if (debouncedSearchTerm) {
@@ -51,7 +51,7 @@ const SearchBar = ({ placeholder, onSearch }: SearchBarProps) => {
             id="default-search"
             value={searchTerm}
             onChange={handleInputChange}
-            className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-[#1d1c1cc5] focus:ring-blue-500 focus:border-blue-500 dark:bg-[#1d1c1cc5] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder={placeholder || "Search..."}
           />
           <button
