@@ -24,7 +24,7 @@ const LoginPage = () => {
 
   return (
     <div className="loginContainer">
-      <TextAtom text="Login" fontSize="4rem" fontWeight="bold"/>
+      <TextAtom text="Login" fontSize="2rem" fontWeight="bold"/>
       <ButtonAtom text='Sign In With Google' onClick={handleSignIn}/>
     </div>
   );

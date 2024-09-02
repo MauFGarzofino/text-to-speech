@@ -3,6 +3,7 @@ import HeartIcon from "../../../assets/Heart";
 import "./styles/SongInfo.css";
 
 interface SongInfoProps {
+  id?: number;
   albumImageUrl?: string;
   trackName: string;
   artist: string;

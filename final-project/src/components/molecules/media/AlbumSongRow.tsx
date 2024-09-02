@@ -4,6 +4,7 @@ import TextAtom from "../../atoms/typography/Text";
 import LyricsModal from "../../molecules/media/LyricsModal";
 import { useLyricsModal } from "../../../hooks/useLyricsModal";
 import { getTextToSpeech } from "../../../api/textToSpeech";
+import { supabase } from "../../../supabase/supabaseClient";
 
 interface SongRowProps {
   number: number;
@@ -30,8 +31,32 @@ const AlbumSongRow = ({ number, title, artist, duration, imageUrl }: SongRowProp
       const audioUrl = URL.createObjectURL(response.audioContent);
       const audio = new Audio(audioUrl);
       audio.play();
+
+      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+
+      if (sessionError) {
+        throw new Error("Error retrieving session");
+      }
+
+      const user = sessionData.session?.user;
+      if (user) {
+        const { error: insertError } = await supabase.from("audio_files").insert({
+          user_id: user.id,
+          text: line,
+          voice: "en-US_AllisonV3Voice",
+          language: "en-US",
+          audio_url: audioUrl,
+          created_at: new Date(),
+        });
+
+        if (insertError) {
+          console.error("Error saving audio file:", insertError);
+        } else {
+          console.log("Audio file saved successfully!");
+        }
+      }
     } catch (error) {
-      console.error("Error al convertir la línea de la canción en audio:", error);
+      console.error("Error playing text-to-speech audio:", error);
     } finally {
       setIsLoading(false);
     }
