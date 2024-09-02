@@ -1,8 +1,8 @@
 import { Card, CardMedia, Typography, CardContent } from "@mui/material";
 import "./styles/MediaCard.css";
 import { useNavigate } from "react-router-dom";
- 
-interface AlbumSongRowProps  {
+
+interface AlbumSongRowProps {
   title: string;
   subtitle: string;
   imageUrl: string;
@@ -11,11 +11,18 @@ interface AlbumSongRowProps  {
   translateY?: string;
 }
 
-const MediaCard = ({ title, subtitle, imageUrl, width, height, translateY }: AlbumSongRowProps ) => {
+const MediaCard = ({
+  title,
+  subtitle,
+  imageUrl,
+  width,
+  height,
+  translateY,
+}: AlbumSongRowProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/songs', { state: { artist: title, album: subtitle } });
+    navigate("/songs", { state: { artist: title, album: subtitle } });
   };
 
   return (
@@ -24,17 +31,20 @@ const MediaCard = ({ title, subtitle, imageUrl, width, height, translateY }: Alb
       className="media-card"
       style={{ borderRadius: "16px", maxWidth: width, maxHeight: height }}
     >
-      <CardMedia
-        className="imgCard"
-        component="img"
-        alt={title}
-        height={height}
-        image={imageUrl}
-        title={title}
-        style={{
-          transform: `translate(0%, ${translateY})`,
-        }}
-      />
+      <div className="imgCard-container">
+        <CardMedia
+          className="imgCard"
+          component="img"
+          alt={title}
+          height={height}
+          image={imageUrl}
+          title={title}
+          style={{
+            transform: `translate(0%, ${translateY})`,
+          }}
+        />
+        <div className="imgCard-overlay"></div>
+      </div>
       <CardContent className="media-card-content">
         <Typography
           component="div"

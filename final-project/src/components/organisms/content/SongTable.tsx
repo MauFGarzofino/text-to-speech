@@ -5,7 +5,6 @@ import "./styles/SongTable.css";
 interface SongTableProps {
   title: string;
   songs: Array<{
-    id: number;
     albumImageUrl?: string;
     trackName: string;
     artist: string;
@@ -19,8 +18,8 @@ const SongTable = ({ title, songs, onViewAllClick }: SongTableProps) => {
     <div className="song-table">
       <HeaderWithButton title={title} onClick={onViewAllClick} />
       <div className="song-list">
-        {songs.map((song) => (
-          <PopularSongRow key={song.id} song={song} />
+        {songs.map((song, index) => (
+          <PopularSongRow key={index} song={song} />
         ))}
       </div>
     </div>

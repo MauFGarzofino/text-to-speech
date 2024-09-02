@@ -2,10 +2,10 @@ import { useState } from "react";
 import SongInfo from "../../molecules/media/SongInfo";
 import LyricsModal from "../../molecules/media/LyricsModal";
 import { useLyricsModal } from "../../../hooks/useLyricsModal";
+import { getTextToSpeech } from "../../../api/textToSpeech";
 
 interface PopularSongRowProps {
   song: {
-    id: number;
     albumImageUrl?: string;
     trackName: string;
     artist: string;
@@ -15,6 +15,7 @@ interface PopularSongRowProps {
 
 const PopularSongRow = ({ song }: PopularSongRowProps) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { isModalOpen, lyrics, handleRowClick, handleClose } = useLyricsModal(
     song.trackName,
     song.artist
@@ -24,10 +25,28 @@ const PopularSongRow = ({ song }: PopularSongRowProps) => {
     setIsLiked(!isLiked);
   };
 
+  const handleLineClick = async (line: string) => {
+    setIsLoading(true);
+    try {
+      const response = await getTextToSpeech({
+        text: line,
+        voice: "en-US_AllisonV3Voice",
+        accept: "audio/wav",
+      });
+
+      const audioUrl = URL.createObjectURL(response.audioContent);
+      const audio = new Audio(audioUrl);
+      audio.play();
+    } catch (error) {
+      console.error("Error playing text-to-speech audio:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <SongInfo
-        id={song.id}
         albumImageUrl={song.albumImageUrl}
         trackName={song.trackName}
         artist={song.artist}
@@ -42,6 +61,8 @@ const PopularSongRow = ({ song }: PopularSongRowProps) => {
         trackName={song.trackName}
         artist={song.artist}
         lyrics={lyrics}
+        onLineClick={handleLineClick}
+        isLoading={isLoading}
       />
     </>
   );

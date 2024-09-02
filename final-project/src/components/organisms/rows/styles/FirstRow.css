@@ -3,7 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
     gap: 20px;
     justify-items: center; 
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 735px) {
@@ -12,9 +12,10 @@
     }
 }
 
+
 @media (max-width: 340px) {
     .container-fr {
-        height: 550px;
-        max-height: 550px;
+        height: 500px;
+        max-height: 500px;
     }
 }

@@ -1,9 +1,8 @@
 import HeartFillIcon from "../../../assets/HeartFill";
 import HeartIcon from "../../../assets/Heart";
-import "./styles/SongInfo.css"
+import "./styles/SongInfo.css";
 
 interface SongInfoProps {
-  id: number;
   albumImageUrl?: string;
   trackName: string;
   artist: string;
@@ -14,7 +13,6 @@ interface SongInfoProps {
 }
 
 const PopularSongInfo = ({
-  id,
   albumImageUrl,
   trackName,
   artist,
@@ -28,7 +26,6 @@ const PopularSongInfo = ({
 
   return (
     <div className="song-row" onClick={onRowClick}>
-      <span className="song-id">{id}</span>
       <img
         src={albumImageUrl || DEFAULT_ALBUM_IMAGE}
         alt={trackName}

@@ -8,6 +8,8 @@ interface LyricsModalProps {
   trackName: string;
   artist: string;
   lyrics: string | null;
+  onLineClick: (line: string) => void;
+  isLoading: boolean;
 }
 
 const LyricsModal = ({
@@ -16,16 +18,29 @@ const LyricsModal = ({
   trackName,
   artist,
   lyrics,
+  onLineClick,
+  isLoading,
 }: LyricsModalProps) => {
   const formatLyrics = (lyrics: string) => {
     const [mainLyrics, disclaimer] = lyrics.split("...");
+    const lines = mainLyrics.split("\n");
+
     return (
       <>
         <Typography
           id="lyrics-modal-description"
           className="lyrics-modal-description"
         >
-          {mainLyrics}
+          {lines.map((line, index) => (
+            <div
+              key={index}
+              className="lyrics-line"
+              onClick={() => onLineClick(line)}
+              style={{ cursor: 'pointer', color: isLoading ? 'gray' : 'inherit' }}
+            >
+              {line}
+            </div>
+          ))}
         </Typography>
         <Typography
           id="lyrics-disclaimer"
