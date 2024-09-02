@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import LanguageLearning from "../organisms/content/LangagueLearning";
+import LanguageLearning from "../organisms/content/LanguageLearning";
 import { supabase } from "../../supabase/supabaseClient";
 import { useAuth } from "../../context/AuthContext";
 import UserProfile from "../molecules/user/UserProfile";

@@ -1,0 +1,23 @@
+/* Añadir a un archivo CSS específico para ViewAllSongs o una clase global */
+.view-all-songs {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .song-list {
+    margin-top: 20px;
+  }
+  
+  .load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .view-all-songs {
+      padding: 10px;
+    }
+  }
+  

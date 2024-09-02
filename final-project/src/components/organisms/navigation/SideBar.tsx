@@ -58,9 +58,6 @@ const Sidebar = () => {
               <NavItemMolecule type="search" text="Search" />
             </li>
             <li>
-              <NavItemMolecule type="vocabulary" text="Vocabulary" />
-            </li>
-            <li>
               <NavItemMolecule type="lyrics" text="Lyrics" />
             </li>
           </ul>

@@ -75,8 +75,8 @@ const AlbumSongRow = ({ number, title, artist, duration, imageUrl }: SongRowProp
         trackName={title}
         artist={artist}
         lyrics={lyrics}
-        onLineClick={handleLineClick}  // Pasamos la función al modal
-        isLoading={isLoading}  // Podrías mostrar un loading mientras se procesa
+        onLineClick={handleLineClick}  
+        isLoading={isLoading}
       />
     </>
   );

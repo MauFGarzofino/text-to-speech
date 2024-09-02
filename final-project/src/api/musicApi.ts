@@ -93,13 +93,32 @@ export function searchTrack(trackName: string, artistName: string) {
     .then(response => {
       const trackList = response.data.message.body.track_list;
       if (trackList.length > 0) {
-        return trackList[0].track.track_id; 
+        return trackList[0].track.track_id;
       } else {
         throw new Error('Track not found');
       }
     })
     .catch(error => {
       console.error("Error searching track:", error);
+      throw error;
+    });
+}
+
+// Función para buscar canciones en Musixmatch
+export function searchSongs(searchTerm: string, artistName?: string) {
+  return axios.get(`${corsProxy}${musixmatchApiUrl}track.search`, {
+    params: {
+      apikey: `${musixmatchApiKey}`,
+      q_track: searchTerm,
+      q_artist: artistName,
+      f_has_lyrics: 1, // Opcional, para filtrar solo canciones con letras disponibles
+      s_track_rating: 'desc',
+      format: 'json'
+    },
+  })
+    .then(response => response.data.message.body.track_list)
+    .catch(error => {
+      console.error("Error searching songs:", error);
       throw error;
     });
 }
